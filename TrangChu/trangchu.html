@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>HLPTT - Chất lượng - Tươi xanh</title>
+  <!-- Bootstrap 5 (utility classes only – d-none, d-md-flex, etc.) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/Frontend/TrangChu/trangchu.css" />
+  <link rel="stylesheet" href="/Frontend/GioiThieu/GioiThieu.css">
+  <link rel="stylesheet" href="/Frontend/GioHang/GioHang.css">
+  <link rel="stylesheet" href="/Frontend/LienHe/contact.css">
+  <link rel="stylesheet" href="/Frontend/TinTuc/tintuc.css">
+  <link rel="stylesheet" href="/Frontend/SanPham/sanpham.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
+  <link rel="stylesheet" href="/Frontend/Profile/profile.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/vn.js"></script>
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a class="logo" href="/Frontend/TrangChu/trangchu.html">
+        <img src="logo.jpg" alt="">
+      </a>
+      <div class="search-bar">
+        <input id="searchInput" placeholder="Tìm kiếm sản phẩm..." type="text" />
+        <button id="searchButton">🔍</button>
+      </div>
+      <div class="header-icons">
+        <div class="icon-item" id="gioHang" data-page="cart_Page">
+          <div class="icon">
+            🛒
+            <span class="badge">0</span>
+          </div>
+          <span class="text">Giỏ hàng</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Navigation -->
+  <nav id="mainNav">
+    <div class="nav-content">
+      <div class="menu-section">
+        <button class="menu-toggle" id="categoryMenuToggle">
+          <span>☰</span>
+          <span class="menu-toggle-text">Danh mục sản phẩm</span>
+        </button>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link active" href="/Frontend/TrangChu/trangchu.html" data-page="home">Trang chủ</a>
+        <a class="nav-link" href="../GioiThieu/GioiThieu.html" data-page="about">Giới thiệu</a>
+
+        <!-- SẢN PHẨM có dropdown -->
+        <div class="nav-item has-mega">
+          <a class="nav-link" href="../SanPham/sanpham.html" data-page="product-page">Sản phẩm ▾</a>
+
+          <div class="mega-menu mega-menu-top">
+            <div class="mega-menu-wrapper">
+              <div class="menu-columns">
+                <div class="menu-column">
+                  <h3><a href="../SanPham/sanpham.html?category=rau-cu" style="color:inherit; text-decoration:none;">Rau
+                      củ quả</a></h3>
+                  <ul>
+                    <li><a href="../SanPham/sanpham.html?category=rau-cu">Rau ăn lá</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=rau-cu">Rau ăn củ</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=rau-cu">Rau ăn quả</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=rau-cu">Rau gia vị</a></li>
+                  </ul>
+                  <h3 style="margin-top: 25px"><a href="../SanPham/sanpham.html"
+                      style="color:inherit; text-decoration:none;">Đồ khô</a></h3>
+                  <ul>
+                    <li><a href="../SanPham/sanpham.html?search=gạo">Gạo các loại</a></li>
+                    <li><a href="../SanPham/sanpham.html?search=hạt">Hạt các loại</a></li>
+                    <li><a href="../SanPham/sanpham.html?search=dầu">Dầu các loại</a></li>
+                    <li><a href="../SanPham/sanpham.html?search=trà">Trà các loại</a></li>
+                  </ul>
+                </div>
+                <div class="menu-column">
+                  <h3><a href="../SanPham/sanpham.html?category=trai-cay"
+                      style="color:inherit; text-decoration:none;">Trái cây</a></h3>
+                  <ul>
+                    <li><a href="../SanPham/sanpham.html?category=trai-cay">Trái cây trong nước</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=trai-cay">Trái cây nhập khẩu</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=trai-cay">Trái cây đông lạnh</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=trai-cay">Trái cây sấy</a></li>
+                  </ul>
+                  <h3 style="margin-top: 25px"><a href="../SanPham/sanpham.html?category=do-uong"
+                      style="color:inherit; text-decoration:none;">Thức uống</a></h3>
+                  <ul>
+                    <li><a href="../SanPham/sanpham.html?category=do-uong">Thức uống đóng chai</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=do-uong">Sữa thực vật</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=do-uong">Nước ép và sinh tố</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=do-uong">Sữa động vật</a></li>
+                  </ul>
+                </div>
+                <div class="menu-column">
+                  <h3><a href="../SanPham/sanpham.html?category=thit" style="color:inherit; text-decoration:none;">Thịt
+                      và hải sản</a></h3>
+                  <ul>
+                    <li><a href="../SanPham/sanpham.html?category=thit">Thịt heo</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=thit">Thịt bò</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=thit">Thịt nhập khẩu</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=thit">Thủy hải sản</a></li>
+                  </ul>
+                  <h3 style="margin-top: 25px"><a href="../SanPham/sanpham.html?category=banh-sua"
+                      style="color:inherit; text-decoration:none;">Sản phẩm chế biến</a></h3>
+                  <ul>
+                    <li><a href="../SanPham/sanpham.html?category=banh-sua">Bánh mì đông lạnh</a></li>
+                    <li><a href="../SanPham/sanpham.html?search=bún">Bún các loại</a></li>
+                    <li><a href="../SanPham/sanpham.html?search=mì">Mì các loại</a></li>
+                    <li><a href="../SanPham/sanpham.html?category=banh-sua">Thực phẩm đông lạnh</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="menu-image-section">
+                <img alt="Rau củ tươi"
+                  onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+                  src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=600&fit=crop" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="nav-link" href="../TinTuc/TinTuc.html" data-page="question-page">Câu hỏi thường gặp</a>
+        <a class="nav-link" href="../LienHe/contact.html" data-page="contact">Liên hệ</a>
+      </div>
+
+      <!-- Hamburger Button (mobile only) -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div id="mainContent" class="main_content">
+    <!-- Hero Banner -->
+    <div class="homepage" id="homePage">
+      <!--main content start here-->
+      <section class="hero">
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <h2>Rau Tươi<br />Giảm Giá</h2>
+            <p class="hero-subtitle">
+              Tiết kiệm tới 50% cho đơn hàng đầu tiên của bạn
+            </p>
+            <button class="cta-button">Đặt ngay</button>
+          </div>
+          <div class="hero-image">
+            <img alt="Rau củ tươi"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&amp;h=600&amp;fit=crop" />
+          </div>
+        </div>
+      </section>
+      <!-- Categories -->
+      <section class="categories">
+        <div class="section-header">
+          <h2>Danh mục nổi bật</h2>
+          <div class="category-nav">
+
+            <div class="nav-buttons">
+              <button class="nav-btn prev" onclick="scrollCategories('left')">❮</button>
+              <button class="nav-btn next" onclick="scrollCategories('right')">❯</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="categories-grid" id="categories-container">
+        </div>
+      </section>
+      <!-- Best Selling Products -->
+      <section class="products-section">
+        <div class="section-header">
+          <h2>Bán chạy nhất hàng ngày</h2>
+
+          <div class="category-nav">
+            <div class="category-tabs" id="bestseller-tabs">
+              <button class="active" data-slug="rau-cu">Rau củ</button>
+              <button data-slug="trai-cay">Trái cây</button>
+              <button data-slug="gia-vi-do-kho">Đồ khô</button>
+            </div>
+
+            <div class="nav-buttons">
+              <button class="nav-btn prev" onclick="scrollBestSeller('left')">❮</button>
+              <button class="nav-btn next" onclick="scrollBestSeller('right')">❯</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="products-layout">
+          <div class="promo-banner">
+            <h3>Ưu đãi độc quyền - Giảm giá 20%</h3>
+            <p class="promo-price">
+              Mua sắm thoải mái chỉ từ<br /><strong>20.000 VNĐ</strong>
+            </p>
+            <p>Chỉ trong tuần này. Đừng bỏ lỡ...</p>
+            <button>Mua ngay</button>
+            <img alt="Vegetables"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://cdn.tgdd.vn/Files/2018/07/27/1104673/co-phai-an-nhieu-rau-cu-la-tot-202112301617596948.jpg" />
+          </div>
+
+          <div class="products-grid" id="bestseller-container">
+            <p style="padding: 20px; color: #888;">Đang tải sản phẩm...</p>
+          </div>
+        </div>
+
+        <button class="view-all-btn">Xem tất cả</button>
+      </section>
+      <!-- Info Banners -->
+      <section class="info-banners">
+        <div class="info-banner" style="
+              background: linear-gradient(
+                  rgba(245, 234, 210, 0.9),
+                  rgba(245, 234, 210, 0.9)
+                ),
+                url('https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=400&amp;h=300&amp;fit=crop');
+            ">
+          <h3>Nông sản tươi mới<br />Sản phẩm 100% từ<br />Thiên nhiên</h3>
+          <button>Xem ngay</button>
+        </div>
+        <div class="info-banner" style="
+              background: linear-gradient(
+                  rgba(255, 228, 230, 0.9),
+                  rgba(255, 228, 230, 0.9)
+                ),
+                url('https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&amp;h=300&amp;fit=crop');
+            ">
+          <h3>
+            Bữa sáng lành mạnh<br />Sữa tươi nguyên chất<br />Tiệt trùng
+          </h3>
+          <button>Xem ngay</button>
+        </div>
+        <div class="info-banner" style="
+              background: linear-gradient(
+                  rgba(220, 237, 230, 0.9),
+                  rgba(220, 237, 230, 0.9)
+                ),
+                url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&amp;h=300&amp;fit=crop');
+            ">
+          <h3>Rau củ hữu cơ 100%<br />Sạch sẽ và an toàn<br />Chất lượng</h3>
+          <button>Xem ngay</button>
+        </div>
+      </section>
+      <!-- Flash Sale -->
+      <section class="flash-sale-section">
+        <div class="fs-header">
+          <div class="fs-title">
+            <h2>⚡ Khuyến mãi đặc biệt</h2>
+            <p>Đừng bỏ lỡ cơ hội giảm giá đặc biệt!</p>
+          </div>
+
+          <div class="fs-timer">
+            <div class="timer-box">
+              <span class="t-num">34</span>
+              <span class="t-lbl">Ngày</span>
+            </div>
+            <div class="timer-box">
+              <span class="t-num">04</span>
+              <span class="t-lbl">Giờ</span>
+            </div>
+            <div class="timer-box">
+              <span class="t-num">35</span>
+              <span class="t-lbl">Phút</span>
+            </div>
+            <div class="timer-box">
+              <span class="t-num">37</span>
+              <span class="t-lbl">Giây</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fs-body">
+          <div id="flashsale-container" class="fs-grid">
+            <p style="padding: 20px; text-align: center; width: 100%;">Đang tải khuyến mãi...</p>
+          </div>
+        </div>
+      </section>
+      <!-- Category Showcase - Meat Products -->
+      <section class="category-products">
+        <div class="section-header">
+          <h2>Sản phẩm nổi bật trong farm</h2>
+          <div class="category-filter" id="farm-tabs">
+            <button class="active" data-slug="thit">Thịt heo</button>
+            <button data-slug="thit">Thịt bò</button>
+            <button data-slug="hai-san">Hải sản</button>
+          </div>
+        </div>
+
+        <div class="products-layout">
+          <div class="promo-banner farm-banner">
+            <h3>Ưu đãi độc quyền - Giảm giá 10%</h3>
+            <p class="promo-price">
+              Mua sắm thoải mái chỉ từ<br /><strong>10.000 VND</strong>
+            </p>
+            <p>Chỉ trong tuần này. Mua ngay kẻo lỡ...</p>
+            <button>Mua ngay</button>
+            <img alt="Vegetables"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=No+Image';"
+              src="https://images.unsplash.com/photo-1566842600175-97dca489844f?w=400&amp;h=300&amp;fit=crop" />
+          </div>
+
+          <div class="products-grid" id="meat-container">
+            <p style="padding: 20px; color: #888;">Đang tải sản phẩm...</p>
+          </div>
+        </div>
+
+        <button class="view-all-btn">Xem tất cả</button>
+      </section>
+      <!-- New Products -->
+      <section class="products-section">
+        <div class="section-header">
+          <h2>Sản phẩm mới</h2>
+        </div>
+        <div class="products-grid" id="new-products-container">
+          <div class="product-card">
+            <span class="product-badge">-17%</span>
+            <div class="product-thumb">
+              <img alt="Hành tây" class="product-image"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+                src="https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=250&amp;h=200&amp;fit=crop" />
+              <div class="product-quick">
+                <button class="qa-btn qa-eye" title="Xem nhanh">👁️</button><button class="qa-btn qa-compare"
+                  title="So sánh">🔁</button><button class="qa-btn qa-heart" title="Yêu thích +1">
+                  ❤️
+                </button>
+              </div>
+            </div>
+            <h3 class="product-name">Hành tây</h3>
+            <div class="product-price">
+              <span class="current-price">120.000₫</span>
+              <span class="old-price">145.000₫</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <span class="product-badge">-10%</span>
+            <span class="product-badge new">Mới</span>
+            <div class="product-thumb">
+              <img alt="Bún gạo khô" class="product-image"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+                src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=250&amp;h=200&amp;fit=crop" />
+              <div class="product-quick">
+                <button class="qa-btn qa-eye" title="Xem nhanh">👁️</button><button class="qa-btn qa-compare"
+                  title="So sánh">🔁</button><button class="qa-btn qa-heart" title="Yêu thích +1">
+                  ❤️
+                </button>
+              </div>
+            </div>
+            <h3 class="product-name">Bún gạo khô</h3>
+            <div class="product-price">
+              <span class="current-price">89.000₫</span>
+              <span class="old-price">99.000₫</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">Tùy chọn</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <span class="product-badge">-12%</span>
+            <div class="product-thumb">
+              <img alt="Bún gạo huyết rồng" class="product-image"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=250&amp;h=200&amp;fit=crop" />
+              <div class="product-quick">
+                <button class="qa-btn qa-eye" title="Xem nhanh">👁️</button><button class="qa-btn qa-compare"
+                  title="So sánh">🔁</button><button class="qa-btn qa-heart" title="Yêu thích +1">
+                  ❤️
+                </button>
+              </div>
+            </div>
+            <h3 class="product-name">Bún gạo huyết rồng</h3>
+            <div class="product-price">
+              <span class="current-price">37.000₫</span>
+              <span class="old-price">42.000₫</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <span class="product-badge">-11%</span>
+            <div class="product-thumb">
+              <img alt="Miến dong" class="product-image"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+                src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=250&amp;h=200&amp;fit=crop" />
+              <div class="product-quick">
+                <button class="qa-btn qa-eye" title="Xem nhanh">👁️</button><button class="qa-btn qa-compare"
+                  title="So sánh">🔁</button><button class="qa-btn qa-heart" title="Yêu thích +1">
+                  ❤️
+                </button>
+              </div>
+            </div>
+            <h3 class="product-name">Miến dong</h3>
+            <div class="product-price">
+              <span class="current-price">85.000₫</span>
+              <span class="old-price">95.000₫</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <span class="product-badge">-6%</span>
+            <div class="product-thumb">
+              <img alt="Nước năng lượng" class="product-image"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+                src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=250&amp;h=200&amp;fit=crop" />
+              <div class="product-quick">
+                <button class="qa-btn qa-eye" title="Xem nhanh">👁️</button><button class="qa-btn qa-compare"
+                  title="So sánh">🔁</button><button class="qa-btn qa-heart" title="Yêu thích +1">
+                  ❤️
+                </button>
+              </div>
+            </div>
+            <h3 class="product-name">Nước năng lượng</h3>
+            <div class="product-price">
+              <span class="current-price">30.000₫</span>
+              <span class="old-price">32.000₫</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+        <button class="view-all-btn">Xem tất cả</button>
+      </section>
+      <!-- Fresh Seafood -->
+      <section class="category-products seafood-section">
+        <div class="section-header">
+          <h2>Hải sản tươi</h2>
+
+          <div class="category-filter" id="seafood-tabs">
+            <button class="active" data-slug="hai-san">Tôm sú</button>
+            <button data-slug="hai-san">Chả mực</button>
+            <button data-slug="hai-san">Cá thu</button>
+            <button data-slug="hai-san">Cua biển</button>
+          </div>
+        </div>
+
+        <div class="products-layout reverse-layout">
+          <div class="products-grid" id="seafood-container">
+            <p style="padding: 20px; color: #888;">Đang tải hải sản...</p>
+          </div>
+
+          <div class="banner-column">
+            <div class="small-banner">
+              <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=400&h=300&fit=crop"
+                alt="Seafood 1">
+            </div>
+            <div class="small-banner">
+              <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" alt="Seafood 2">
+            </div>
+          </div>
+        </div>
+
+        <button class="view-all-btn">Xem tất cả</button>
+      </section>
+      <!-- Video Guides -->
+      <section class="video-section">
+        <div class="section-header">
+          <h2>Video hướng dẫn</h2>
+        </div>
+        <div class="videos-grid">
+          <div class="video-card">
+            <img alt="Video" class="video-thumbnail"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&amp;h=200&amp;fit=crop" />
+            <div class="video-play-btn">▶</div>
+            <div class="video-title">
+              Hướng dẫn cách làm sữa hạt sen ngon mê ly ngay tại nhà
+            </div>
+          </div>
+          <div class="video-card">
+            <img alt="Video" class="video-thumbnail"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1597714026720-8f74c62310ba?w=300&amp;h=200&amp;fit=crop" />
+            <div class="video-play-btn">▶</div>
+            <div class="video-title">
+              Hướng dẫn cách làm sữa hạt đậu đỏ thơm ngon, béo ngậy
+            </div>
+          </div>
+          <div class="video-card">
+            <img alt="Video" class="video-thumbnail"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=300&amp;h=200&amp;fit=crop" />
+            <div class="video-play-btn">▶</div>
+            <div class="video-title">
+              Hướng dẫn cách làm sữa hạt điều đơn giản mà không phải ai
+              cũng...
+            </div>
+          </div>
+          <div class="video-card">
+            <img alt="Video" class="video-thumbnail"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1637382752225-d7f97e1ddd03?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000" />
+            <div class="video-play-btn">▶</div>
+            <div class="video-title">
+              Hướng dẫn cách làm sữa hạt đậu đen siêu ngon cho cả gia đình
+            </div>
+          </div>
+        </div>
+        <button class="view-all-btn">Xem tất cả</button>
+      </section>
+      <!-- Special Promo Banner -->
+      <section class="promo-full">
+        <img src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_banner_index.jpg?1758009134092" alt="">
+      </section>
+      <!-- Dry Goods -->
+      <section class="multi-category-section">
+
+        <div class="col-group">
+          <div class="section-header-small">
+            <h3>Đồ khô</h3>
+            <a href="#">Xem thêm >></a>
+          </div>
+          <div class="small-list" id="dryfood-container">
+            <p class="loading-text">Đang tải...</p>
+          </div>
+        </div>
+
+        <div class="col-group">
+          <div class="section-header-small">
+            <h3>Thức uống</h3>
+            <a href="#">Xem thêm >></a>
+          </div>
+          <div class="small-list" id="drinks-container">
+            <p class="loading-text">Đang tải...</p>
+          </div>
+        </div>
+
+        <div class="col-group">
+          <div class="section-header-small">
+            <h3>Bún các loại</h3>
+            <a href="#">Xem thêm >></a>
+          </div>
+          <div class="small-list" id="noodle-container">
+            <p class="loading-text">Đang tải...</p>
+          </div>
+        </div>
+
+      </section>
+      <!-- News Section -->
+      <section class="news-section">
+        <div class="section-header">
+          <h2>Tin tức mới nhất</h2>
+        </div>
+        <div class="news-grid">
+          <div class="news-card">
+            <img alt="News" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1597714026720-8f74c62310ba?w=400&amp;h=250&amp;fit=crop" />
+            <div class="news-content">
+              <span class="news-date">07 Th2/2026</span>
+              <h3 class="news-title">
+                Công dụng của gạo lứt timtho có vỏ cách nấu gạo lứt tim
+              </h3>
+              <p class="news-excerpt">
+                Một loại gạo lứt được nguyên cám và mầu lẫn độc trong tim
+                hồng, hòa cùng có những những như...
+              </p>
+            </div>
+          </div>
+          <div class="news-card">
+            <img alt="News" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&amp;h=250&amp;fit=crop" />
+            <div class="news-content">
+              <span class="news-date">07 Th2/2026</span>
+              <h3 class="news-title">
+                Hướng dẫn cách làm salad dưa chuột thanh mát, bổ dưỡng cho...
+              </h3>
+              <p class="news-excerpt">
+                Thực bánh mì từ ngày hè rồi cả khi thanh mát, vô khi rất thanh
+                nhất, có những nguyên liệu...
+              </p>
+            </div>
+          </div>
+          <div class="news-card">
+            <img alt="News" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=No+Image';"
+              src="https://images.unsplash.com/photo-1514986888952-8cd320577b68?w=400&amp;h=250&amp;fit=crop" />
+            <div class="news-content">
+              <span class="news-date">07 Th2/2026</span>
+              <h3 class="news-title">Cảng dụng của tỏi ngâm mật ong</h3>
+              <p class="news-excerpt">
+                Ngày cảng, từ một tỏi phổ từ để là kết Điều có nhiều của cho
+                Thể là tốt cũng...
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="view-all-btn">Xem tất cả</button>
+      </section>
+      <!-- Review Section -->
+      <section class="news-section">
+        <div class="section-header">
+          <h2>🌟 Khách hàng nói gì về chúng tôi</h2>
+          <p style="color: #666; font-size: 16px; margin-top: 8px;">Hơn 10,000+ khách hàng tin tưởng và yêu thích HLPTT
+          </p>
+        </div>
+
+        <div class="news-grid" style="gap: 30px;">
+          <!-- Review 1 -->
+          <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+              <img alt="User" src="https://i.pravatar.cc/80?img=5"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/80';"
+                style="width: 60px; height: 60px; border-radius: 50%; margin-right: 15px;" />
+              <div>
+                <h4 style="font-weight: 600; color: #333; margin: 0;">Nguyễn Thị Lan Anh</h4>
+                <p style="font-size: 14px; color: #999; margin: 4px 0;">Chủ nhà hàng</p>
+                <div style="color: #FFD700; font-size: 16px;">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 15px;">
+              "Tôi đã đặt hàng rau củ và hải sản tươi tại HLPTT được 6 tháng.
+              Chất lượng luôn đảm bảo, giao hàng đúng giờ. Đặc biệt là cà chua và
+              tôm sú rất tươi ngon, khách hàng của nhà hàng rất hài lòng!"
+            </p>
+            <span
+              style="display: inline-block; background: #e8f5e9; color: #4CAF50; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500;">
+              ✓ Đã mua hàng
+            </span>
+          </div>
+
+          <!-- Review 2 -->
+          <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+              <img alt="User" src="https://i.pravatar.cc/80?img=12"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/80';"
+                style="width: 60px; height: 60px; border-radius: 50%; margin-right: 15px;" />
+              <div>
+                <h4 style="font-weight: 600; color: #333; margin: 0;">Trần Minh Tuấn</h4>
+                <p style="font-size: 14px; color: #999; margin: 4px 0;">Bếp trưởng khách sạn 5 sao</p>
+                <div style="color: #FFD700; font-size: 16px;">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 15px;">
+              "Là đầu bếp chuyên nghiệp, tôi rất khó tính về nguyên liệu.
+              HLPTT không chỉ cung cấp thực phẩm tươi sạch mà còn có giá cả hợp lý.
+              Hải sản ở đây tươi không thua gì chợ đầu mối!"
+            </p>
+            <span
+              style="display: inline-block; background: #e8f5e9; color: #4CAF50; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500;">
+              ✓ Đã mua hàng
+            </span>
+          </div>
+
+          <!-- Review 3 -->
+          <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+              <img alt="User" src="https://i.pravatar.cc/80?img=47"
+                onerror="this.onerror=null;this.src='https://via.placeholder.com/80';"
+                style="width: 60px; height: 60px; border-radius: 50%; margin-right: 15px;" />
+              <div>
+                <h4 style="font-weight: 600; color: #333; margin: 0;">Phạm Hương Giang</h4>
+                <p style="font-size: 14px; color: #999; margin: 4px 0;">Mẹ của 2 bé</p>
+                <div style="color: #FFD700; font-size: 16px;">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+            <p style="font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 15px;">
+              "Với 2 đứa con nhỏ, tôi rất quan tâm đến thực phẩm sạch.
+              HLPTT giúp tôi tiết kiệm thời gian đi chợ mà vẫn đảm bảo bữa ăn
+              dinh dưỡng cho gia đình. Giao hàng tận nhà rất tiện lợi!"
+            </p>
+            <span
+              style="display: inline-block; background: #e8f5e9; color: #4CAF50; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500;">
+              ✓ Đã mua hàng
+            </span>
+          </div>
+        </div>
+      </section>
+      <!-- Partners Section -->
+      <section class="partners">
+        <h2>Đối tác của chúng tôi</h2>
+        <div class="partners-grid">
+          <div class="partner-logo">BIBO MART</div>
+          <div class="partner-logo">Gfoods</div>
+          <div class="partner-logo">Nhà Quê</div>
+          <div class="partner-logo">emart</div>
+          <div class="partner-logo">LOTTE Mart</div>
+          <div class="partner-logo">HAMAN BAKING</div>
+        </div>
+      </section>
+      <!-- main content kết thúc ở đây-->
+    </div>
+
+    <!--Giới thiệu-->
+    <div id="aboutPage" class="hidden"></div>
+    <!--Liên hệ để nhầm thành tin tức :)))-->
+    <div class="hidden" id="lienHePage"></div>
+    <!--Giỏ hàng-->
+    <div id="cartPage" class="hidden"></div>
+
+    <!--Câu hỏi-->
+    <div id="questionPage" class="hidden"></div>
+
+    <!--Sản phẩm-->
+    <div class="hidden" id="sanphamPage"></div>
+  </div>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <div class="feature-text">
+        <h4>Vận chuyển miễn phí</h4>
+        <p>Hóa đơn trên 5 triệu</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">↩️</div>
+      <div class="feature-text">
+        <h4>Đổi trả miễn phí</h4>
+        <p>Trong vòng 7 ngày</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-text">
+        <h4>100% Hoàn tiền</h4>
+        <p>Nếu sản phẩm lỗi</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📞</div>
+      <div class="feature-text">
+        <h4>Hotline: 0794704856</h4>
+        <p>Hỗ trợ 24/7</p>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <h3>
+            <span style="color: #fbbf24">HLPTT</span>
+          </h3>
+          <p style="color: rgba(255, 255, 255, 0.7)">
+            Chất lượng - Tươi xanh
+          </p>
+        </div>
+        <p style="margin: 20px 0; color: rgba(255, 255, 255, 0.8)">
+          HLPTT - Siêu thị trực tuyến chuyên cung cấp nông sản, thực phẩm
+          sạch, chất lượng, tươi xanh, tốt cho sức khỏe.
+        </p>
+        <p style="color: rgba(255, 255, 255, 0.8)">
+          <strong>Địa chỉ:</strong> 49 ngõ 53 Ngọa Long phường Minh Khai Bắc
+          Từ Liêm Hà Nội
+        </p>
+        <p style="color: rgba(255, 255, 255, 0.8)">
+          <strong>Điện thoại:</strong> 0794704856
+        </p>
+        <p style="color: rgba(255, 255, 255, 0.8)">
+          <strong>Email:</strong> t16rng@gmail.com
+        </p>
+        <div class="social-icons">
+          <div class="social-icon">📘</div>
+          <div class="social-icon">🐦</div>
+          <div class="social-icon">📷</div>
+          <div class="social-icon">📌</div>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>CHÍNH SÁCH</h4>
+        <ul>
+          <li><a href="#">Chính sách thành viên</a></li>
+          <li><a href="#">Chính sách thanh toán</a></li>
+          <li><a href="#">Chính sách đổi sản phẩm</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Chính sách công tác viên</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>HƯỚNG DẪN</h4>
+        <ul>
+          <li><a href="#">Hướng dẫn mua hàng</a></li>
+          <li><a href="#">Hướng dẫn đổi trả</a></li>
+          <li><a href="#">Hướng dẫn thanh toán</a></li>
+          <li><a href="#">Chương trình đổng bạc vản</a></li>
+          <li><a href="#">Tin kiểm</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+        <div class="social-icons">
+          <div class="social-icon">📘</div>
+          <div class="social-icon">🐦</div>
+          <div class="social-icon">📷</div>
+          <div class="social-icon">📌</div>
+        </div>
+        <h4 style="margin-top: 25px">HÌNH THỨC THANH TOÁN</h4>
+        <div class="payment-methods">
+          <div class="payment-icon">💳</div>
+          <div class="payment-icon">VISA</div>
+          <div class="payment-icon">MC</div>
+          <div class="payment-icon">JCB</div>
+          <div class="payment-icon">ATM</div>
+          <div class="payment-icon">COD</div>
+        </div>
+        <h4 style="margin-top: 25px">ZALO MINI APPS</h4>
+        <div style="margin-top: 15px">
+          <img alt="QR Code" src="../LogReg/asset/dff778e5-1ec5-4c0f-92b5-cbfe5537fd1e.jpeg" style="
+                width: 150px;
+                height:150px;
+                background: white;
+                padding: 5px;
+                border-radius: 8px;
+              " />
+          <p style="
+                font-size: 12px;
+                margin-top: 10px;
+                color: rgba(255, 255, 255, 0.8);
+              ">
+            Quét mã QR để mua hàng nhanh chóng
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Bản quyền thuộc về <strong>nhóm 5 TTCSN </strong></p>
+    </div>
+  </footer>
+  <!-- Floating Buttons -->
+  <div class="notification-bell">🔔</div>
+  <div class="floating-buttons">
+    <div class="floating-support">🎧 Liên hệ</div>
+  </div>
+  <div class="qv-overlay" id="qvOverlay">
+    <div class="qv-modal">
+      <div class="qv-header">
+        <div class="qv-title" id="qvTitle">Tên sản phẩm</div>
+        <button class="qv-close" id="qvClose">✕</button>
+      </div>
+      <div class="qv-body">
+        <div>
+          <img alt="" class="qv-thumb" id="qvImg" />
+        </div>
+        <div>
+          <div class="qv-price" id="qvPrice">0đ</div>
+          <div class="qv-status">Tình trạng: Còn hàng</div>
+          <p id="qvDesc">Mô tả sản phẩm.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/Frontend/js/auth-header.js"></script>
+  <script src="trangchu.js"></script>
+</body>
+
+</html>
