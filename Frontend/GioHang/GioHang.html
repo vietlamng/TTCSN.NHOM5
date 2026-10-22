@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Giỏ hàng - HLPTT</title>
+  <link rel="stylesheet" href="GioHang.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+<body>
+  <div id="GioHang" class="cartPage">
+    <main class="cart-page">
+      <div class="cart-header">
+        <h1 class="cart-title"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</h1>
+      </div>
+      <div id="cartContent"></div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      try {
+        if (location.protocol === 'file:' && !localStorage.getItem('cartItems')) {
+          const seed = [
+            { id: 1001, name: 'Sản phẩm mẫu A', price: 48000, qty: 1, img: 'https://via.placeholder.com/90?text=A' },
+            { id: 1002, name: 'Sản phẩm mẫu B', price: 120000, qty: 2, img: 'https://via.placeholder.com/90?text=B' }
+          ];
+          localStorage.setItem('cartItems', JSON.stringify(seed));
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <script src="GioHang.js"></script>
+</body>
+
+</html>
