@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm - HLPTT</title>
+    <link rel="stylesheet" href="../TrangChu/trangchu.css" />
+    <link rel="stylesheet" href="product-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a class="logo" href="../TrangChu/trangchu.html">
+                <img src="../TrangChu/logo.jpg" alt="HLPTT">
+            </a>
+            <div class="search-bar">
+                <input id="searchInput" placeholder="Tìm kiếm sản phẩm..." type="text" />
+                <button id="searchButton">🔍</button>
+            </div>
+            <div class="header-icons">
+                <div class="icon-item" onclick="window.location.href='../TrangChu/trangchu.html'" style="cursor:pointer">
+                    <div class="icon">🏠</div>
+                    <span class="text">Trang chủ</span>
+                </div>
+                <div class="icon-item" onclick="window.location.href='../GioHang/giohang.html'" style="cursor:pointer">
+                    <div class="icon">
+                        🛒
+                        <span class="badge" id="cartBadge">0</span>
+                    </div>
+                    <span class="text">Giỏ hàng</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="../TrangChu/trangchu.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+            <span class="sep">/</span>
+            <a href="#" id="breadcrumb-cat">Danh mục</a>
+            <span class="sep">/</span>
+            <span id="breadcrumb-name" class="current">Đang tải...</span>
+        </nav>
+
+        <!-- ========== PRODUCT DETAIL ========== -->
+        <div class="product-detail-container" id="product-content">
+            <!-- Left: Gallery -->
+            <div class="product-gallery">
+                <div class="main-image-frame" id="main-image-frame">
+                    <img id="main-img" src="https://via.placeholder.com/500" alt="Product Image">
+                    <div class="img-zoom-lens" id="zoom-lens"></div>
+                </div>
+                <div class="thumb-list" id="thumb-list"></div>
+            </div>
+
+            <!-- Right: Info -->
+            <div class="product-info-side">
+                <h1 id="pro-name" class="pro-title">Đang tải sản phẩm...</h1>
+
+                <div class="pro-rating-row">
+                    <div class="stars" id="pro-stars">★★★★★</div>
+                    <span class="review-count" id="pro-review-count">(0 đánh giá)</span>
+                    <span class="divider">|</span>
+                    <span class="sold-count" id="pro-sold">Đã bán: 0</span>
+                </div>
+
+                <div class="pro-meta">
+                    <span class="meta-item"><i class="fa-solid fa-barcode"></i> Mã: <strong id="pro-sku">---</strong></span>
+                    <span class="meta-item"><i class="fa-solid fa-box"></i> Tình trạng: <strong id="pro-stock" class="in-stock">Còn hàng</strong></span>
+                    <span class="meta-item"><i class="fa-solid fa-warehouse"></i> Kho: <strong id="pro-stock-qty">0</strong></span>
+                    <span class="meta-item" id="pro-unit-wrap"><i class="fa-solid fa-weight-scale"></i> Đơn vị: <strong id="pro-unit">---</strong></span>
+                </div>
+
+                <div class="pro-price-box">
+                    <div class="price-main">
+                        <span id="pro-price" class="current-price">0₫</span>
+                        <span id="pro-old-price" class="old-price"></span>
+                    </div>
+                    <span id="pro-discount" class="discount-tag"></span>
+                    <div class="price-note" id="price-per-unit"></div>
+                </div>
+
+                <div class="pro-short-desc" id="pro-desc">Đang cập nhật...</div>
+
+                <!-- Badges -->
+                <div class="pro-badges" id="pro-badges">
+                    <span class="badge-item organic" id="badge-organic" style="display:none">
+                        <i class="fa-solid fa-leaf"></i> Hữu cơ
+                    </span>
+                    <span class="badge-item featured" id="badge-featured" style="display:none">
+                        <i class="fa-solid fa-star"></i> Nổi bật
+                    </span>
+                    <span class="badge-item fresh">
+                        <i class="fa-solid fa-snowflake"></i> Tươi mỗi ngày
+                    </span>
+                </div>
+
+                <!-- Action Box -->
+                <div class="action-box">
+                    <div class="qty-selector">
+                        <button onclick="changeQty(-1)"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" id="buy-qty" value="1" readonly>
+                        <button onclick="changeQty(1)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <button class="btn-buy" onclick="addToCartCurrent()">
+                        <i class="fa-solid fa-cart-plus"></i> THÊM VÀO GIỎ
+                    </button>
+                    <button class="btn-buy-now" onclick="buyNow()">
+                        <i class="fa-solid fa-bolt"></i> MUA NGAY
+                    </button>
+                </div>
+
+                <!-- Policy Box -->
+                <div class="policy-box">
+                    <div class="policy-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <div>
+                            <strong>Miễn phí vận chuyển</strong>
+                            <p>Đơn hàng trên 500K</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <div>
+                            <strong>Đổi trả miễn phí</strong>
+                            <p>Trong 7 ngày</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <strong>100% chính hãng</strong>
+                            <p>Cam kết chất lượng</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <i class="fa-solid fa-headset"></i>
+                        <div>
+                            <strong>Hỗ trợ 24/7</strong>
+                            <p>Hotline: 0794704856</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TABS ========== -->
+        <div class="product-tabs">
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="desc">
+                    <i class="fa-solid fa-file-lines"></i> Mô tả chi tiết
+                </button>
+                <button class="tab-btn" data-tab="attrs">
+                    <i class="fa-solid fa-list-check"></i> Thông số
+                </button>
+                <button class="tab-btn" data-tab="reviews">
+                    <i class="fa-solid fa-star"></i> Đánh giá
+                </button>
+            </div>
+            <div class="tab-content">
+                <div id="tab-desc" class="tab-pane active">
+                    <div id="full-description">Nội dung đang cập nhật...</div>
+                </div>
+                <div id="tab-attrs" class="tab-pane">
+                    <table class="attr-table" id="attr-table">
+                        <tbody id="attr-tbody"></tbody>
+                    </table>
+                </div>
+                <div id="tab-reviews" class="tab-pane">
+                    <div id="reviews-list">
+                        <p class="no-reviews">Chưa có đánh giá nào cho sản phẩm này.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== RELATED PRODUCTS ========== -->
+        <section class="related-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-heart"></i> Sản phẩm liên quan</h2>
+            </div>
+            <div class="related-grid" id="related-products">
+                <p style="padding:20px; color:#888">Đang tải...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>© Bản quyền thuộc về <strong>nhóm 6 TTCSN</strong></p>
+        </div>
+    </footer>
+
+    <script src="product-detail.js"></script>
+</body>
+
+</html>
