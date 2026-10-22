@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sản phẩm - HLPTT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 utility classes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/Frontend/TrangChu/trangchu.css" />
+  <link rel="stylesheet" href="sanpham.css" />
+  <style>
+    /* Header Full Width Override */
+    header {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .productPage {
+      padding: 0 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a class="logo" href="/Frontend/TrangChu/trangchu.html">
+        <img src="/Frontend/TrangChu/logo.jpg" alt="HLPTT">
+      </a>
+      <div class="search-bar">
+        <input id="searchInput" placeholder="Tìm kiếm sản phẩm..." type="text" />
+        <button id="searchButton">🔍</button>
+      </div>
+      <div class="header-icons">
+        <div class="icon-item" onclick="window.location.href='/Frontend/GioHang/giohang.html'" style="cursor:pointer">
+          <div class="icon">
+            🛒
+            <span class="badge" id="cartBadge">0</span>
+          </div>
+          <span class="text">Giỏ hàng</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="productPage">
+    <div class="sanpham-header">
+      <h1><a href="../TrangChu/trangchu.html" style="color:inherit; text-decoration:none; cursor:pointer;">Siêu Thị
+          Online</a></h1>
+      <p><a href="../TrangChu/trangchu.html" style="color:inherit; text-decoration:none;">Trang chủ</a> > Tất cả sản
+        phẩm</p>
+      <div class="nav-categories">
+        <div class="cat-item" data-cat="rau-cu">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Marketvegetables.jpg/500px-Marketvegetables.jpg"
+            alt="Rau củ"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text='+encodeURIComponent(this.alt||'Image');" />
+          <p>Rau củ</p>
+        </div>
+        <div class="cat-item" data-cat="trai-cay">
+          <img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Trái cây"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text='+encodeURIComponent(this.alt||'Image');" />
+          <p>Trái cây</p>
+        </div>
+        <div class="cat-item" data-cat="thit">
+          <img src="https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb=w=600"
+            alt="Thịt"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text='+encodeURIComponent(this.alt||'Image');" />
+          <p>Thịt</p>
+        </div>
+        <div class="cat-item" data-cat="trung">
+          <img
+            src="https://www.tasteofhome.com/wp-content/uploads/2025/01/Pressure-Cooker-Hard-Boiled-Eggs_EXPS_TOHD24_258639_ChristineMa_3.jpg?fit=750%2C750"
+            alt="Trứng"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text='+encodeURIComponent(this.alt||'Image');" />
+          <p>Trứng</p>
+        </div>
+        <div class="cat-item" data-cat="do-uong">
+          <img src="https://images.pexels.com/photos/128402/pexels-photo-128402.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Đồ uống"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text='+encodeURIComponent(this.alt||'Image');" />
+          <p>Đồ uống</p>
+        </div>
+        <div class="cat-item" data-cat="banh-sua">
+          <img src="https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Bánh sữa"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text='+encodeURIComponent(this.alt||'Image');" />
+          <p>Bánh và sữa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Sidebar Filter -->
+      <div class="sidebar">
+        <h3 class="filter-title">DANH MỤC SẢN PHẨM</h3>
+        <div class="filter-group">
+          <label><input type="checkbox" value="rau-cu" /> Rau củ</label>
+          <label><input type="checkbox" value="trai-cay" /> Trái cây</label>
+          <label><input type="checkbox" value="thit" /> Thịt</label>
+          <label><input type="checkbox" value="trung" /> Trứng</label>
+          <label><input type="checkbox" value="do-uong" /> Đồ uống</label>
+          <label><input type="checkbox" value="banh-sua" /> Bánh và sữa</label>
+        </div>
+
+        <h3 class="filter-title">BỘ LỌC SẢN PHẨM</h3>
+        <div class="filter-group">
+          <h4>Chọn mức giá</h4>
+          <label><input type="radio" name="price" value="all" checked /> Tất
+            cả</label>
+          <label><input type="radio" name="price" value="under20" /> Dưới
+            20.000đ</label>
+          <label><input type="radio" name="price" value="20-50" /> 20.000đ -
+            50.000đ</label>
+          <label><input type="radio" name="price" value="50-100" /> 50.000đ -
+            100.000đ</label>
+          <label><input type="radio" name="price" value="over100" /> Trên
+            100.000đ</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Loại</h4>
+          <label><input type="checkbox" value="giam-gia" /> Đang giảm giá</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Thương hiệu</h4>
+          <label><input type="checkbox" value="vinamilk" /> Vinamilk</label>
+          <label><input type="checkbox" value="cp" /> CP</label>
+          <label><input type="checkbox" value="meizan" /> Meizan</label>
+        </div>
+      </div>
+
+      <!-- Main Products -->
+      <div class="main-content">
+        <!-- MOBILE FILTER BAR (chỉ hiện trên mobile) -->
+        <div class="mobile-filter-bar" id="mobileFilterBar">
+          <div class="mfb-row">
+            <select id="mobileCatSelect" class="mfb-select" onchange="mobileCatFilter()">
+              <option value="">Tất cả danh mục</option>
+              <option value="rau-cu">Rau củ</option>
+              <option value="trai-cay">Trái cây</option>
+              <option value="thit">Thịt</option>
+              <option value="trung">Trứng</option>
+              <option value="do-uong">Đồ uống</option>
+              <option value="banh-sua">Bánh và sữa</option>
+            </select>
+            <select id="mobileSortSelect" class="mfb-select" onchange="mobileSort(this.value)">
+              <option value="default">Sắp xếp</option>
+              <option value="price-asc">Giá thấp → cao</option>
+              <option value="price-desc">Giá cao → thấp</option>
+              <option value="name-asc">Tên A → Z</option>
+            </select>
+          </div>
+          <div class="mfb-price-row">
+            <span class="mfb-price-label">Giá tối đa: <strong id="priceDisplay">500.000đ</strong></span>
+            <input type="range" id="priceRange" class="mfb-range" min="0" max="500000" step="10000" value="500000" oninput="updatePriceRange(this.value)">
+          </div>
+        </div>
+        <div class="top-bar">
+          <h3>TẤT CẢ SẢN PHẨM</h3>
+          <div class="search-filter-container">
+            <div class="search-box-products">
+              <input type="text" id="productSearchInput" placeholder="Tìm kiếm sản phẩm..." />
+              <button id="productSearchBtn">🔍</button>
+            </div>
+            <select class="sort-select" id="sortSelect">
+              <option value="default">Mặc định</option>
+              <option value="price-asc">Giá: Thấp đến cao</option>
+              <option value="price-desc">Giá: Cao đến thấp</option>
+              <option value="name-asc">Tên: A-Z</option>
+              <option value="name-desc">Tên: Z-A</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="products-container">
+          <div class="products-grid" id="productsGrid"></div>
+          <div class="load-more-center" id="loadMoreCenter">
+            <button class="btn-load-more" id="loadMore">Xem thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header -->
+
+  <script src="sanpham.js"></script>
+</body>
+
+</html>
