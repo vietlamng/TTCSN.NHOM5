@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Đơn hàng của tôi - HLPTT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS dùng chung của Trang chủ -->
+  <link rel="stylesheet" href="../TrangChu/trangchu.css" />
+  <!-- CSS riêng của trang Đơn hàng -->
+  <link rel="stylesheet" href="donhang.css" />
+
+  <!-- JS xử lý đơn hàng -->
+  <script defer src="donhang.js"></script>
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+<body>
+  <!-- ========== HEADER: DÙNG LẠI NHƯ TRANG CHỦ ========== -->
+  <header>
+    <div class="header-content">
+      <a class="logo" href="../TrangChu/trangchu.html">
+
+        <img src="../TrangChu/logo.jpg" alt="">
+
+      </a>
+      <div class="search-bar">
+        <input placeholder="Thực phẩm sạch" type="text" />
+        <button>🔍</button>
+      </div>
+      <div class="header-icons">
+        <div class="icon-item" id="gioHang" data-page="cart_Page">
+          <div class="icon">
+            🛒
+            <span class="badge">0</span>
+          </div>
+          <span class="text">Giỏ hàng</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ========== NỘI DUNG CHÍNH: ĐƠN HÀNG CỦA TÔI ========== -->
+  <main class="page-main">
+    <div class="container orders-page">
+      <h1 class="orders-title">Đơn hàng của tôi</h1>
+      <p class="orders-subtitle">
+        Xem lại các đơn hàng đã đặt, gồm thông tin sản phẩm, số lượng, đơn giá
+        và trạng thái xử lý.
+      </p>
+
+      <!-- Status Filter Tabs -->
+      <div class="order-tabs">
+        <button class="tab-btn active" data-status="ALL">Tất cả</button>
+        <button class="tab-btn" data-status="PENDING">Chờ xác nhận</button>
+        <button class="tab-btn" data-status="SHIPPING">Đang giao</button>
+        <button class="tab-btn" data-status="COMPLETED">Hoàn thành</button>
+      </div>
+
+      <!-- Trạng thái tải dữ liệu -->
+      <div id="ordersLoading" class="orders-loading">
+        Đang tải đơn hàng...
+      </div>
+
+      <!-- Thông báo lỗi khi gọi API -->
+      <div id="ordersError" class="orders-error" style="display: none;"></div>
+
+      <!-- Thông báo khi không có đơn hàng -->
+      <div id="emptyMessage" class="orders-empty" style="display: none;">
+        Bạn chưa có đơn hàng nào.
+      </div>
+
+      <!-- Nơi render danh sách đơn hàng -->
+      <div id="ordersContainer" class="orders-container"></div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER: DÙNG LẠI NHƯ TRANG CHỦ ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3 class="footer-title">HLPTT</h3>
+        <p>
+          Nền tảng thương mại với những sản phẩm chất lượng, mang lại trải
+          nghiệm mua sắm tiện lợi cho bạn.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Liên kết nhanh</h4>
+        <ul>
+          <li><a href="../TrangChu/trangchu.html">Trang chủ</a></li>
+          <li><a href="../SanPham/sanpham.html">Sản phẩm</a></li>
+          <li><a href="../GioHang/giohang.html">Giỏ hàng</a></li>
+          <li><a href="../profile/profile.html">Tài khoản</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p>Email: support@hlptt.vn</p>
+        <p>Hotline: 0123 456 789</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 HLPTT. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
