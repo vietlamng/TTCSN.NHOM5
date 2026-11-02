@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tài khoản của bạn - HLPTT</title>
+
+    <!-- CSS dùng chung header + footer (giữ như trang chủ của bạn) -->
+    <link rel="stylesheet" href="../TrangChu/trangchu.css" />
+    <!-- CSS riêng cho trang profile -->
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header>
+      <div class="header-content">
+        <a class="logo" href="../TrangChu/trangchu.html">
+          <img src="../TrangChu/logo.jpg" alt="HLPTT" />
+        </a>
+
+        <div class="search-bar">
+          <input placeholder="Thực phẩm sạch" type="text" />
+          <button>🔍</button>
+        </div>
+
+        <div class="header-icons">
+          <div class="icon-item">
+            <div class="icon">
+              ❤️
+              <span class="badge">0</span>
+            </div>
+            <span class="text">Yêu thích</span>
+          </div>
+          <div class="icon-item" id="gioHang">
+            <div class="icon">
+              🛒
+              <span class="badge">0</span>
+            </div>
+            <span class="text">Giỏ hàng</span>
+          </div>
+          <!-- Avatar + menu user sẽ được JS chèn vào đây (auth-header.js) -->
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= NAV ================= -->
+    <nav>
+      <div class="nav-content">
+        <div class="menu-section">
+          <button class="menu-toggle">
+            <span>☰</span>
+            <span>Danh mục sản phẩm</span>
+          </button>
+        </div>
+        <div class="nav-links">
+          <a class="nav-link" href="../TrangChu/trangchu.html">Trang chủ</a>
+          <a class="nav-link" href="../GioiThieu/GioiThieu.html">Giới thiệu</a>
+          <a class="nav-link" href="../SanPham/sanpham.html">Sản phẩm</a>
+          <a class="nav-link" href="../TinTuc/TinTuc.html">Tin tức</a>
+          <a class="nav-link" href="../LienHe/contact.html">Liên hệ</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= MAIN PROFILE ================= -->
+    <main class="profile-page">
+      <!-- CỘT BÊN TRÁI -->
+      <section class="profile-sidebar">
+        <h1 class="profile-title">TRANG TÀI KHOẢN</h1>
+        <p class="profile-hello">
+          Xin chào,
+          <span class="profile-name js-profile-name">Khách hàng</span>!
+        </p>
+
+        <ul class="profile-menu">
+  <!-- Tab hiện tại -->
+  <li class="active">Thông tin tài khoản</li>
+
+  <!-- Mục mới: Đơn hàng của tôi -->
+  <li>
+    <a href="../DonHang/donhang.html">Đơn hàng của tôi</a>
+  </li>
+</ul>
+
+      </section>
+
+      <!-- CỘT BÊN PHẢI: AVATAR + THÔNG TIN, TÁCH THÀNH 2 KHUNG -->
+      <section class="profile-right">
+        <!-- KHUNG AVATAR RIÊNG -->
+        <aside class="profile-avatar-card">
+          <div class="user-avatar-large">
+            <img
+              id="profileAvatarImg"
+              src="https://via.placeholder.com/120x120?text=Avatar"
+              alt="Ảnh đại diện"
+            />
+          </div>
+
+          <div class="profile-avatar-actions">
+            <input type="file" id="avatarInput" accept="image/*" hidden />
+            <button
+              type="button"
+              id="btnChangeAvatar"
+              class="btn btn-secondary"
+            >
+              Thay đổi ảnh đại diện
+            </button>
+          </div>
+        </aside>
+
+        <!-- KHUNG TRẮNG CHỈ CHỨA THÔNG TIN CÁ NHÂN -->
+        <section class="profile-main">
+          <h2 class="profile-main-title">THÔNG TIN TÀI KHOẢN</h2>
+
+          <div class="profile-main-info">
+            <p>
+              <strong>Họ tên:</strong>
+              <span class="js-profile-name">Khách hàng</span>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <span class="js-profile-email">email@example.com</span>
+            </p>
+            <p>
+              <strong>Số điện thoại:</strong>
+              <span class="js-profile-phone">Chưa cập nhật</span>
+            </p>
+
+            <div class="profile-buttons">
+              <button
+                type="button"
+                id="btnEditProfile"
+                class="btn btn-outline"
+              >
+                Thay đổi thông tin cá nhân
+              </button>
+            </div>
+          </div>
+
+          <!-- FORM CHỈNH SỬA THÔNG TIN -->
+          <form id="profileEditForm" class="profile-edit-form">
+            <div class="form-row">
+              <label for="editFullName">Họ tên</label>
+              <input
+                type="text"
+                id="editFullName"
+                name="fullName"
+                placeholder="Nhập họ tên"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="editPhone">Số điện thoại</label>
+              <input
+                type="text"
+                id="editPhone"
+                name="phone"
+                placeholder="Nhập số điện thoại"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="btnSaveProfile" class="btn btn-primary">
+                Lưu thay đổi
+              </button>
+              <button
+                type="button"
+                id="btnCancelEdit"
+                class="btn btn-light"
+              >
+                Hủy
+              </button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+   
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <h3><span style="color: #fbbf24">HLPTT</span></h3>
+            <p style="color: rgba(255, 255, 255, 0.7)">
+              Chất lượng - Tươi xanh
+            </p>
+          </div>
+          <p style="margin: 20px 0; color: rgba(255, 255, 255, 0.8)">
+            HLPTT - Siêu thị trực tuyến chuyên cung cấp nông sản, thực phẩm
+            sạch, tươi xanh, tốt cho sức khỏe.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Liên hệ</h4>
+          <p style="color: rgba(255, 255, 255, 0.8)">
+            <strong>Địa chỉ:</strong> Hà Nội, Việt Nam
+          </p>
+          <p style="color: rgba(255, 255, 255, 0.8)">
+            <strong>Điện thoại:</strong> 0794 704 856
+          </p>
+          <p style="color: rgba(255, 255, 255, 0.8)">
+            <strong>Email:</strong> nambp4@gmail.com
+          </p>
+          <div class="social-icons">
+            <div class="social-icon">📘</div>
+            <div class="social-icon">🐦</div>
+            <div class="social-icon">📷</div>
+            <div class="social-icon">📌</div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Hỗ trợ khách hàng</h4>
+          <ul>
+            <li>Hướng dẫn mua hàng</li>
+            <li>Phương thức thanh toán</li>
+            <li>Chính sách giao hàng</li>
+            <li>Chính sách đổi trả</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 HLPTT. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ================= SCRIPT ================= -->
+    <script src="../js/auth-header.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>
