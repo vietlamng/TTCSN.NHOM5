@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên hệ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+
+<body>
+  <!-- Main Header -->
+  <!-- Breadcrumb -->
+  <div class="lienHePage">
+    <div class="subbar">
+      <div class="container breadcrumb-bar">
+        <nav class="breadcrumb">
+          <a href="/Frontend/TrangChu/trangchu.html">Trang chủ</a>
+          <span>/</span>
+          <span class="muted">Liên hệ</span>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container contact-page">
+      <section class="contact-grid">
+        <!-- Left: Info + Form -->
+        <div class="contact-left">
+          <div class="contact-header">
+            <h1>NƠI GIẢI ĐÁP TOÀN BỘ MỌI THẮC MẮC CỦA BẠN?</h1>
+            <p class="subtitle">
+              Bean Farm- Siêu thị trực tuyến mua sắm nông sản, chất lượng,
+              tươi xanh.
+            </p>
+            <p class="highlight-text">Giá siêu tốt - Giao siêu tốc.</p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-icon">
+                <img src="map.svg" alt="" />
+              </div>
+              <div class="info-content">
+                <div class="info-label">Địa chỉ</div>
+                <div class="info-text">
+                  70 Lữ Gia, Phường 15, Quận 11, TP.HCM
+                </div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><img src="phone.svg" alt="" /></div>
+              <div class="info-content">
+                <div class="info-label">Hotline</div>
+                <div class="info-text">1900 6750</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><img src="clock.svg" alt="" /></div>
+              <div class="info-content">
+                <div class="info-label">Thời gian làm việc</div>
+                <div class="info-text">8h - 22h từ thứ 2 đến chủ nhật</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><img src="letter.svg" alt="" /></div>
+              <div class="info-content">
+                <div class="info-label">Email</div>
+                <div class="info-text">support@sapo.vn</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+            <p class="form-description">
+              Nếu bạn có thắc mắc gì, có thể gửi yêu cầu cho chúng tôi, và
+              chúng tôi sẽ liên lạc lại với bạn sớm nhất có thể .
+            </p>
+            <form id="contactForm">
+              <div class="grid-2">
+                <input type="text" name="name" placeholder="Họ và tên" required />
+                <input type="email" name="email" placeholder="Email" required />
+              </div>
+              <input type="text" name="phone" placeholder="Điện thoại*" />
+              <textarea name="message" rows="5" placeholder="Nội dung" required></textarea>
+              <button class="btn">Gửi thông tin</button>
+              <p class="muted small" id="formMsg" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Map -->
+        <div class="contact-map">
+          <div id="map" class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.661965454748!2d105.84055040953935!3d21.006183180556643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac71294bf0ab%3A0xc7e2d20e5e04a9da!2zxJDhuqFpIEjhu41jIELDoWNoIEtob2EgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1763052005996!5m2!1svi!2s"
+              width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>
