@@ -1,0 +1,198 @@
+
+.tintucPage *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tintucPage {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.tintucPage .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tintucPage .question-header {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.tintucPage .question-header a{
+  color: #068b4d;
+  text-decoration: none;
+}
+
+.tintucPage .question-header a:hover {
+  text-decoration: underline;
+}
+
+.tintucPage .main-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tintucPage .faq-section {
+  flex: 2;
+  min-width: 300px;
+}
+
+.tintucPage .faq-section h1 {
+  color: #068b4d;
+  font-size: 20px;
+  margin: 25px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #006400;
+}
+
+.tintucPage .section-title {
+  margin-top: 30px !important;
+}
+
+.tintucPage .faq-item {
+  background: #fff;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tintucPage .question {
+  background: #068b4d;
+  color: white;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tintucPage .answer {
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  display: none;
+}
+
+.tintucPage .answer.show {
+  display: block;
+}
+
+.tintucPage .contact-box {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.tintucPage .contact-box h3 {
+  background: #068b4d;
+  color: white;
+  padding: 10px 15px;
+  margin: -20px -20px 15px -20px;
+  border-radius: 10px 10px 0 0;
+  font-size: 16px;
+}
+
+.tintucPage .contact-box ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.tintucPage .contact-box ul li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #068b4d;
+}
+
+.tintucPage .contact-box p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.tintucPage .form-group {
+  margin-bottom: 15px;
+}
+
+.tintucPage .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.tintucPage .form-group input,
+.tintucPage .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.tintucPage .form-group input:focus,
+.tintucPage .form-group textarea:focus {
+  outline: none;
+  border-color: #068b4d;
+  box-shadow: 0 0 5px rgba(0,100,0,0.2);
+}
+
+.tintucPage .submit-btn {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.tintucPage .submit-btn:hover {
+  background: #e68900;
+}
+
+/* Responsive – 768px */
+@media (max-width: 768px) {
+  .tintucPage .main-content {
+    flex-direction: column;
+  }
+  .tintucPage .contact-box {
+    position: static;
+  }
+}
+
+/* xs – 480px */
+@media (max-width: 480px) {
+  .tintucPage .container {
+    padding: 12px;
+  }
+
+  .tintucPage .faq-section h1 {
+    font-size: 17px;
+  }
+
+  .tintucPage .question {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .tintucPage .contact-box {
+    padding: 16px;
+  }
+}
