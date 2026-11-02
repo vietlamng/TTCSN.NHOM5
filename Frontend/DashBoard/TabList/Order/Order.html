@@ -1,0 +1,59 @@
+<div class="order-page-container">
+    <link rel="stylesheet" href="TabList/Order/Order.css">
+
+    <div class="page-toolbar">
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass" style="color: #9ca3af;"></i>
+            <input type="text" id="orderSearchInput" placeholder="Tìm mã đơn, tên khách..."
+                onkeyup="window.searchOrder()">
+        </div>
+    </div>
+
+    <!-- Status Filter Tabs -->
+    <div class="order-tabs" style="margin: 20px 0; display: flex; gap: 8px; border-bottom: 2px solid #e5e7eb;">
+        <button class="tab-btn active" data-status="ALL" onclick="window.filterOrdersByStatus('ALL')">Tất cả</button>
+        <button class="tab-btn" data-status="CONFIRMED" onclick="window.filterOrdersByStatus('CONFIRMED')">Đã xác nhận</button>
+        <button class="tab-btn" data-status="SHIPPING" onclick="window.filterOrdersByStatus('SHIPPING')">Đang giao</button>
+        <button class="tab-btn" data-status="COMPLETED" onclick="window.filterOrdersByStatus('COMPLETED')">Hoàn thành</button>
+        <button class="tab-btn" data-status="CANCELLED" onclick="window.filterOrdersByStatus('CANCELLED')">Đã hủy</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="10%">Mã Đơn</th>
+                    <th width="20%">Khách hàng</th>
+                    <th width="15%">Tổng tiền</th>
+                    <th width="10%">Thanh toán</th>
+                    <th width="15%">Trạng thái</th>
+                    <th width="15%">Ngày đặt</th>
+                    <th width="15%">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableBody">
+                <tr>
+                    <td colspan="7" style="text-align:center">Đang tải dữ liệu...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="orderModal" class="modal-overlay hidden">
+    <div class="modal-box" style="width: 700px;">
+        <div class="modal-header">
+            <h3 id="orderModalTitle">Chi tiết đơn hàng</h3>
+            <span class="close-modal" onclick="window.closeOrderModal()">✕</span>
+        </div>
+
+        <div class="modal-body" id="orderDetailContent">
+            <p class="text-center">Đang tải...</p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" onclick="window.closeOrderModal()">Đóng</button>
+            <div id="modalActions" style="display:inline-block"></div>
+        </div>
+    </div>
+</div>

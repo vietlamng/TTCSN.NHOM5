@@ -1,0 +1,98 @@
+<div class="product-page-container">
+    <div class="page-toolbar">
+        <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" id="productSearchInput" placeholder="Tìm tên sản phẩm..." onkeyup="window.searchProduct()">
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <button id="btnDeleteSelected" class="btn-delete-multi" onclick="window.deleteSelectedProducts()" style="display: none;">
+                🗑️ Xóa đã chọn (<span id="selectedCount">0</span>)
+            </button>
+            <button class="btn-add-new" onclick="window.openAddProductModal()">+ Thêm sản phẩm</button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="3%">
+                        <input type="checkbox" id="selectAll" onchange="window.toggleSelectAll(this)">
+                    </th>
+                    <th width="5%">ID</th>
+                    <th width="10%">Ảnh</th>
+                    <th width="27%">Tên sản phẩm</th>
+                    <th width="15%">Danh mục</th>
+                    <th width="15%">Giá bán</th>
+                    <th width="10%">Kho</th>
+                    <th width="15%">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <tr><td colspan="7" style="text-align:center">Đang tải dữ liệu...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="productModal" class="modal-overlay hidden">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modalTitle">Thông tin sản phẩm</h3>
+            <span class="close-modal" onclick="window.closeProductModal()">✕</span>
+        </div>
+        
+        <div class="modal-body">
+            <form id="productForm">
+                <input type="hidden" id="prodId">
+
+                <div class="form-group">
+                    <label>Tên sản phẩm <span style="color:red">*</span></label>
+                    <input type="text" id="prodName" required placeholder="Nhập tên sản phẩm">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Danh mục</label>
+                        <select id="prodCategory" required>
+                            <option value="">Loading...</option>
+                        </select>
+                    </div>
+                    <div class="form-group half">
+                        <label>Giá bán (VNĐ)</label>
+                        <input type="number" id="prodPrice" required>
+                    </div>
+                </div>
+
+                <div class="form-row stock-row" style="background: #f9f9f9; padding: 10px; border-radius: 8px; margin-bottom: 15px;">
+                    <div class="form-group half">
+                        <label>Tồn kho hiện tại</label>
+                        <input type="number" id="currentStock" value="0" readonly style="background: #e9ecef; color: #555;">
+                    </div>
+                    <div class="form-group half">
+                        <label id="lblAddStock" style="color: #008848; font-weight: bold;">Nhập thêm (+)</label>
+                        <input type="number" id="addStock" value="0" min="0" placeholder="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Hình ảnh sản phẩm</label>
+                    <input type="file" id="prodImageInput" accept="image/*">
+                    <div style="margin-top: 5px; font-size: 12px; color: #666;">
+                        * Chọn ảnh để upload (Nếu sửa, không chọn = giữ ảnh cũ)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mô tả ngắn</label>
+                    <textarea id="prodDesc" rows="2"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" onclick="window.closeProductModal()">Hủy</button>
+            <button class="btn-save" onclick="window.saveProduct()">Lưu & Upload</button>
+        </div>
+    </div>
+</div>

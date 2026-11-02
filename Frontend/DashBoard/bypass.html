@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bypass Dashboard - HLPTT Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .bypass-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            color: #856404;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .success {
+            display: none;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #155724;
+        }
+    </style>
+  <link rel="stylesheet" href="/Frontend/theme-refresh.css">
+</head>
+<body>
+    <div class="bypass-container">
+        <h1>🔓 Bypass Dashboard Authentication</h1>
+        
+        <p>
+            Công cụ này sẽ tạo một token mock và thông tin admin để bạn có thể vào Dashboard mà không cần đăng nhập.
+        </p>
+        
+        <div class="warning">
+            ⚠️ <strong>Chỉ dùng cho development!</strong><br>
+            Token này chỉ cho phép bạn xem giao diện Dashboard. API backend vẫn yêu cầu authentication thực.
+        </div>
+        
+        <button class="btn" onclick="bypassAuth()">
+            🚀 Bypass & Vào Dashboard
+        </button>
+        
+        <button class="btn btn-secondary" onclick="clearAuth()">
+            🗑️ Xóa Token & Logout
+        </button>
+        
+        <div class="success" id="successMsg">
+            ✅ Đã tạo token thành công!<br>
+            Đang chuyển đến Dashboard...
+        </div>
+    </div>
+
+    <script>
+        function bypassAuth() {
+            // Tạo mock token (JWT-like format)
+            const mockToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBrYWhvbmEuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0MzYwMDAwLCJleHAiOjk5OTk5OTk5OTl9.MOCK_SIGNATURE_FOR_TESTING";
+            
+            // Tạo mock admin info
+            const mockAdminInfo = {
+                userId: 1,
+                email: "admin@hlptt.com",
+                name: "Admin HLPTT",
+                role: "ADMIN"
+            };
+            
+            // Lưu vào localStorage
+            localStorage.setItem("hlpttAdminToken", mockToken);
+            localStorage.setItem("adminInfo", JSON.stringify(mockAdminInfo));
+            
+            // Hiển thị thông báo thành công
+            document.getElementById("successMsg").style.display = "block";
+            
+            // Chuyển đến dashboard sau 1.5 giây
+            setTimeout(() => {
+                window.location.href = "../index.html";
+            }, 1500);
+        }
+        
+        function clearAuth() {
+            localStorage.removeItem("hlpttAdminToken");
+            localStorage.removeItem("adminInfo");
+            alert("Đã xóa token! Bạn sẽ bị redirect về trang login khi vào Dashboard.");
+        }
+    </script>
+</body>
+</html>
