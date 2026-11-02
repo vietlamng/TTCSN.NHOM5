@@ -1,0 +1,110 @@
+<div class="coupon-page-container">
+    <link rel="stylesheet" href="TabList/Coupon/Coupon.css">
+
+    <div class="page-toolbar">
+        <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" id="couponSearchInput" placeholder="Tìm mã code..." onkeyup="window.searchCoupon()">
+        </div>
+        <button class="btn-add-new" onclick="window.openAddCouponModal()">+ Tạo mã mới</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="5%">ID</th>
+                    <th width="15%">Mã Code</th>
+                    <th width="15%">Giảm giá</th>
+                    <th width="15%">Đơn tối thiểu</th>
+                    <th width="15%">Lượt dùng</th>
+                    <th width="15%">Thời gian</th>
+                    <th width="10%">Trạng thái</th>
+                    <th width="10%">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="couponTableBody">
+                <tr><td colspan="8" style="text-align:center">Đang tải dữ liệu...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="couponModal" class="modal-overlay hidden">
+    <div class="modal-box" style="width: 600px;">
+        <div class="modal-header">
+            <h3 id="couponModalTitle">Tạo mã giảm giá</h3>
+            <span class="close-modal" onclick="window.closeCouponModal()">✕</span>
+        </div>
+        
+        <div class="modal-body">
+            <form id="couponForm">
+                <input type="hidden" id="cpId">
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Mã Code (VD: SALE50) <span style="color:red">*</span></label>
+                        <input type="text" id="cpCode" required style="text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">
+                    </div>
+                    <div class="form-group half">
+                        <label>Loại giảm giá</label>
+                        <select id="cpType" onchange="window.toggleMaxDiscount()">
+                            <option value="percentage">Phần trăm (%)</option>
+                            <option value="fixed">Số tiền cố định (VNĐ)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Giá trị giảm <span style="color:red">*</span></label>
+                        <input type="number" id="cpValue" required placeholder="VD: 10 hoặc 50000">
+                    </div>
+                    <div class="form-group half" id="maxDiscountGroup">
+                        <label>Giảm tối đa (VNĐ)</label>
+                        <input type="number" id="cpMaxDiscount" placeholder="0 = Không giới hạn">
+                        <small style="color:#666; font-size: 11px;">Áp dụng cho loại %</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Đơn tối thiểu (VNĐ)</label>
+                        <input type="number" id="cpMinOrder" value="0">
+                    </div>
+                    <div class="form-group half">
+                        <label>Giới hạn lượt dùng</label>
+                        <input type="number" id="cpLimit" placeholder="Để trống = Vô hạn">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Ngày bắt đầu</label>
+                        <input type="datetime-local" id="cpStart">
+                    </div>
+                    <div class="form-group half">
+                        <label>Ngày kết thúc</label>
+                        <input type="datetime-local" id="cpEnd">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <textarea id="cpDesc" rows="2" placeholder="Mô tả ngắn gọn..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="cpActive" checked> Kích hoạt ngay
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" onclick="window.closeCouponModal()">Hủy</button>
+            <button class="btn-save" onclick="window.saveCoupon()">Lưu mã</button>
+        </div>
+    </div>
+</div>

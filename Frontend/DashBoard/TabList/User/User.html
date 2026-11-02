@@ -1,0 +1,87 @@
+<div class="user-page-container">
+    <link rel="stylesheet" href="TabList/User/User.css">
+
+    <div class="page-toolbar">
+        <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" id="userSearchInput" placeholder="Tìm tên hoặc email..." onkeyup="window.searchUser()">
+        </div>
+        <button class="btn-add-new" onclick="window.openAddUserModal()">+ Thêm nhân viên/khách</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="5%">ID</th>
+                    <th width="20%">Họ tên</th>
+                    <th width="25%">Email</th>
+                    <th width="15%">SĐT</th>
+                    <th width="10%">Vai trò</th>
+                    <th width="10%">Trạng thái</th>
+                    <th width="15%">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <tr><td colspan="7" style="text-align:center">⏳ Đang tải...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="userModal" class="modal-overlay hidden">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="userModalTitle">Thêm người dùng</h3>
+            <span class="close-modal" onclick="window.closeUserModal()">✕</span>
+        </div>
+        
+        <div class="modal-body">
+            <form id="userForm">
+                <input type="hidden" id="userId">
+
+                <div class="form-group">
+                    <label>Họ và tên <span style="color:red">*</span></label>
+                    <input type="text" id="userFullName" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Email <span style="color:red">*</span></label>
+                        <input type="email" id="userEmail" required>
+                    </div>
+                    <div class="form-group half">
+                        <label>Số điện thoại</label>
+                        <input type="text" id="userPhone">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Mật khẩu <small>(Để trống nếu không đổi)</small></label>
+                        <input type="password" id="userPassword" placeholder="******">
+                    </div>
+                    <div class="form-group half">
+                        <label>Vai trò</label>
+                        <select id="userRole">
+                            <option value="2">Khách hàng (User)</option>
+                            <option value="1">Quản trị viên (Admin)</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="userActive" checked>
+                        Kích hoạt tài khoản (Active)
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" onclick="window.closeUserModal()">Hủy</button>
+            <button class="btn-save" onclick="window.saveUser()">Lưu lại</button>
+        </div>
+    </div>
+</div>
